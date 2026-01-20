@@ -74,6 +74,26 @@ public class ToDo : MonoBehaviour
      * ToDo: Add Main Menu Screen to start the game at the beginning (DONE) or from a certain wave, only spawn Player and Enemies once game starts
      */
 
+    /* Setup:
+     * UI: -------------------------
+     * Finish Player UI - Working On
+     * Redo Main Menu
+     * Redo Game Over Menu
+     * ToDo: Add Pause Menu
+     * Player Controls: ------------
+     * Test Player Movement - DONE
+     * Test Player Attack Selection - DONE
+     * Test Player Attacks - DONE
+     * Test Player Death
+     * ToDo: Make Camera controlled by Player mouse
+     * ToDo: Let Player move left/right
+     * Enemies Behavior: ------------
+     * Test Enemy Collision
+     * Test Enemy Attack
+     * Test Enemy Death
+     * ToDo: Re-add Player and Enemy Colliders - Working On
+     */
+
     /* Outline:
      * 1. Finish basic Player abilities - Mostly DONE
      * 2. Make basic Enemy Class and behavior
