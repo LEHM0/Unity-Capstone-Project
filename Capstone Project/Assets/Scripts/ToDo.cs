@@ -13,12 +13,12 @@ public class ToDo : MonoBehaviour
      * Player Projectile needs a script for moving forward - DONE
      * ToDo: Add Player Projectile Trigger Collision - DONE
      * ToDo: Player can fire either a Left Projectile or a Right Projectile - DONE
+     * Fix: Turning causes bullet to fire at odd angles - DONE
+     * ToDo: Camera + Rotation follow Player Mouse Cursor - DONE
      * BACKLOG: ---------------------------------------------------------------------
-     * ToDo: Camera + Rotation follow Player Mouse Cursor
      * ToDo: Increase + Smooth out turn speed
      * ToDo: Smooth jumping physics
      * Fix: Player can fire two shots at once - (Doesn't that make sense though?)
-     * Fix: Turning causes bullet to fire at odd angles - DONE
      */
 
     /* Player Stats:
@@ -69,29 +69,33 @@ public class ToDo : MonoBehaviour
      * ToDo: Progress wave after short down time once all enemies are defeated
      * ToDo: Vary enemy types as waves progress
      * ToDo: Spawn collectible attack types, unlocking that attack for the player once collected
-     * ToDo: Add Pause Screen that freezes the player and all enemies <--- Half-Done, work on freezing enemy ai
+     * ToDo: Add Pause Screen that freezes the player and all enemies <---
      * ToDo: Restart starts the game at the begining <---
-     * ToDo: Add Main Menu Screen to start the game at the beginning (DONE) or from a certain wave, only spawn Player and Enemies once game starts
+     * ToDo: Add Main Menu Screen to start the game at the beginning or from a certain wave, only spawn Player and Enemies once game starts
      */
 
     /* Setup:
      * UI: -------------------------
-     * Finish Player UI - Working On
-     * Redo Main Menu
+     * Finish Player UI - DONE (Need to clean up)
+     * Redo Main Menu - Working On
      * Redo Game Over Menu
      * ToDo: Add Pause Menu
      * Player Controls: ------------
      * Test Player Movement - DONE
      * Test Player Attack Selection - DONE
      * Test Player Attacks - DONE
-     * Test Player Death
-     * ToDo: Make Camera controlled by Player mouse
-     * ToDo: Let Player move left/right
+     * Test Player Death - DONE
+     * ToDo: Make Camera controlled by Player mouse - DONE
+     * ToDo: Let Player move left/right - DONE
+     * Fix: Camera is overly sensitive - Working On
+     * Fix: Camera Y value is inverted
+     * Fix: Camera has no restraints, causing it to be stuck upside down
+     * Fix: Controls can become inverted
      * Enemies Behavior: ------------
-     * Test Enemy Collision
-     * Test Enemy Attack
-     * Test Enemy Death
-     * ToDo: Re-add Player and Enemy Colliders - Working On
+     * Test Enemy Collision - DONE
+     * Test Enemy Death - DONE
+     * ToDo: Re-add Player and Enemy Colliders - DONE
+     * Test Enemy Attack - DONE
      */
 
     /* Outline:

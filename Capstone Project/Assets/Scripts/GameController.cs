@@ -54,14 +54,12 @@ public class GameController : MonoBehaviour
 
     public void TitleScreen()
     {
-        //
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         //gameOverMenu.SetActive(false);
     }
 
     public void StartGame()
     {
-        //
         isGameActive = true;
         mainMenu.SetActive(false);
         playerUI.SetActive(true);
@@ -69,13 +67,11 @@ public class GameController : MonoBehaviour
 
     public void RestartGame()
     {
-        //
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void GameOver()
     {
-        //
         isGameActive = false;
         playerUI.SetActive(false);
         gameOverMenu.SetActive(true);

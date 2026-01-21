@@ -67,9 +67,12 @@ public class EnemyController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        health -= playerStats.playerAttack;
-        Destroy(other.gameObject);
-        Debug.Log("Enemy Hit");
+        if (other.gameObject.CompareTag("Player Projectile"))
+        {
+            health -= playerStats.playerAttack;
+            Destroy(other.gameObject);
+            Debug.Log("Enemy Hit");
+        }
     }
 
     private void Death()
@@ -90,15 +93,12 @@ public class EnemyController : MonoBehaviour
 
     IEnumerator FireAtPlayer()
     {
-        //
         yield return new WaitForSeconds(1);
         if (playerInRange == true)
         {
-            //
             fireCooldown += Time.deltaTime;
             if (fireCooldown > fireRate)
             {
-                //
                 currentPos = enemyBSpawn.transform.position;
 
                 Instantiate(enemyProjectile, currentPos, self.transform.rotation);

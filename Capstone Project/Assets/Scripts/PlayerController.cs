@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     private float verticalInput;
     private float horizontalInput;
     private float speed = 10;
-    private float turnSpeed = 20;
+    //private float turnSpeed = 20;
     private float jump = 10;
     private bool grounded = true;
 
@@ -44,10 +44,8 @@ public class PlayerController : MonoBehaviour
         //Movement Physics
         if (gameController.isGameActive == true)
         {
-            //
             transform.Translate(Vector3.forward * Time.deltaTime * speed * verticalInput);
-            transform.Rotate(Vector3.up, Time.deltaTime * turnSpeed * horizontalInput);
-            // Fix: Let player strafe left/right; Turn w/ camera positioning
+            transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput);
         }
 
         //Jumping Physics
@@ -55,7 +53,6 @@ public class PlayerController : MonoBehaviour
         {
             if (gameController.isGameActive == true)
             {
-                //
                 playerRb.AddForce(Vector3.up * jump, ForceMode.Impulse);
                 grounded = false;
             }
@@ -86,7 +83,6 @@ public class PlayerController : MonoBehaviour
         {
             if (gameController.isGameActive == true)
             {
-                //
                 FireProjectile();
                 playerStats.leftGunCurrentAmmo -= 1;
             }
@@ -102,7 +98,6 @@ public class PlayerController : MonoBehaviour
         {
             if (gameController.isGameActive == true)
             {
-                //
                 FireProjectile();
                 playerStats.rightGunCurrentAmmo -= 1;
             }
@@ -137,9 +132,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //
-        playerStats.currentHealth -= enemyController.enemyAttack;
-        Destroy(other.gameObject);
+        if (other.gameObject.CompareTag("Enemy Projectile"))
+        {
+            playerStats.currentHealth -= enemyController.enemyAttack;
+            Destroy(other.gameObject);
+        }
     }
 
     private void FireProjectile()
