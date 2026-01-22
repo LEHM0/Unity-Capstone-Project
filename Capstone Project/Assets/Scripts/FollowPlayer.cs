@@ -5,6 +5,7 @@ using UnityEngine;
 public class FollowPlayer : MonoBehaviour
 {
     public GameObject player;
+    private GameController gameController;
 
     public float sensitivityY = 1f;
     public float sensitivityX = 1f;
@@ -13,17 +14,25 @@ public class FollowPlayer : MonoBehaviour
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        gameController = GameObject.Find("Game Manager").GetComponent<GameController>();
     }
 
     void Update()
     {
-        //Move the camera in front of where the player moves and wants to face
-        transform.position = player.transform.position;
-        //transform.rotation = player.transform.rotation;
-        rotationY = Input.GetAxis("Mouse Y") * sensitivityY;
-        rotationX = Input.GetAxis("Mouse X") * sensitivityX;
+        if (gameController.isGameActive == true)
+        {
+            //Move the camera in front of where the player moves and wants to face
+            Cursor.lockState = CursorLockMode.Locked;
+            transform.position = player.transform.position;
+            rotationY = Input.GetAxis("Mouse Y") * sensitivityY;
+            rotationX = Input.GetAxis("Mouse X") * sensitivityX;
 
-        transform.eulerAngles += new Vector3(rotationY, rotationX);
+            transform.eulerAngles += new Vector3(rotationY, rotationX);
+        }
+        
+        if (gameController.isGameActive == false)
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 }

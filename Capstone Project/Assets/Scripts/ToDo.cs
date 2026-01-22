@@ -77,9 +77,11 @@ public class ToDo : MonoBehaviour
     /* Setup:
      * UI: -------------------------
      * Finish Player UI - DONE (Need to clean up)
-     * Redo Main Menu - Working On
-     * Redo Game Over Menu
-     * ToDo: Add Pause Menu
+     * Redo Main Menu - DONE
+     * ToDo: Add Wave Select Submenu <---
+     * Redo Game Over Menu - DONE
+     * ToDo: Add Pause Menu - DONE
+     * ToDo: All menus display when called - Working On
      * Player Controls: ------------
      * Test Player Movement - DONE
      * Test Player Attack Selection - DONE

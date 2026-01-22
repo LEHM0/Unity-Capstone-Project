@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    public bool isGameActive;
+    public bool isGameActive = false;
     private int waveNum = 0;
     private float waveDownTime;
     private int maxEnemies;
@@ -14,9 +15,20 @@ public class GameController : MonoBehaviour
 
     private PlayerStats playerStats;
 
+    [Header("Menu UI")]
     public GameObject mainMenu;
+    public GameObject pauseMenu;
     public GameObject gameOverMenu;
+    //Add extra menu for repeat buttons?
 
+    [Header("Buttons")]
+    public Button startButton;
+    public Button waveSelectButton;
+    public Button restartButton;
+    public Button exitMenuButton;
+    public Button exitGameButton;
+
+    [Header("Player UI")]
     public GameObject playerUI;
     public TextMeshProUGUI playerHealthUI;
     public TextMeshProUGUI playerAttackUI;
@@ -28,7 +40,16 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+        TitleScreen();
+
         playerStats = GameObject.Find("Player").GetComponent<PlayerStats>();
+
+        //Button Listeners
+        startButton.onClick.AddListener(StartGame);
+        //waveSelectButton.onClick.AddListener();
+        //restartButton.onClick.AddListener(RestartGame);
+        //exitMenuButton.onClick.AddListener(TitleScreen); <---
+        //exitGameButton.onClick.AddListener();
     }
 
     void Update()
@@ -54,15 +75,32 @@ public class GameController : MonoBehaviour
 
     public void TitleScreen()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        //gameOverMenu.SetActive(false);
+        isGameActive = false;
+
+        mainMenu.SetActive(true);
+        pauseMenu.SetActive(false);
+        gameOverMenu.SetActive(false);
+        playerUI.SetActive(false);
     }
 
     public void StartGame()
     {
         isGameActive = true;
+
         mainMenu.SetActive(false);
+        pauseMenu.SetActive(false);
+        gameOverMenu.SetActive(false);
         playerUI.SetActive(true);
+    }
+
+    public void PauseGame()
+    {
+        isGameActive = false;
+
+        mainMenu.SetActive(false);
+        pauseMenu.SetActive(true);
+        gameOverMenu.SetActive(false);
+        playerUI.SetActive(false);
     }
 
     public void RestartGame()
@@ -73,7 +111,10 @@ public class GameController : MonoBehaviour
     public void GameOver()
     {
         isGameActive = false;
-        playerUI.SetActive(false);
+
+        mainMenu.SetActive(false);
+        pauseMenu.SetActive(false);
         gameOverMenu.SetActive(true);
+        playerUI.SetActive(false);
     }
 }
