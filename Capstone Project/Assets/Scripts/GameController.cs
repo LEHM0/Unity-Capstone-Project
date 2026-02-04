@@ -19,14 +19,13 @@ public class GameController : MonoBehaviour
     public GameObject mainMenu;
     public GameObject pauseMenu;
     public GameObject gameOverMenu;
-    //Add extra menu for repeat buttons?
 
     [Header("Buttons")]
     public Button startButton;
     public Button waveSelectButton;
     public Button restartButton;
     public Button exitMenuButton;
-    public Button exitGameButton;
+    public Button exitGameButton; //What to do w/ extra exit button?
 
     [Header("Player UI")]
     public GameObject playerUI;
@@ -48,8 +47,9 @@ public class GameController : MonoBehaviour
         startButton.onClick.AddListener(StartGame);
         //waveSelectButton.onClick.AddListener();
         //restartButton.onClick.AddListener(RestartGame);
-        //exitMenuButton.onClick.AddListener(TitleScreen); <---
-        //exitGameButton.onClick.AddListener();
+        exitMenuButton.onClick.AddListener(TitleScreen);
+        exitGameButton.onClick.AddListener(ExitGame);
+        //Need resumeGame button for pauseMenu <---
     }
 
     void Update()
@@ -71,6 +71,11 @@ public class GameController : MonoBehaviour
 
         waveNumUI.SetText(waveNum.ToString());
         enemiesLeftUI.SetText(currentEnemies.ToString());
+
+        if (Input.GetKey(KeyCode.Escape) && isGameActive)
+        {
+            PauseGame();
+        }
     }
 
     public void TitleScreen()
@@ -97,15 +102,20 @@ public class GameController : MonoBehaviour
     {
         isGameActive = false;
 
-        mainMenu.SetActive(false);
+        //mainMenu.SetActive(false);
         pauseMenu.SetActive(true);
-        gameOverMenu.SetActive(false);
+        //gameOverMenu.SetActive(false);
         playerUI.SetActive(false);
     }
 
     public void RestartGame()
     {
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 
     public void GameOver()

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    [Header("GameObjects")]
     public GameObject player;
     public Transform playerTransform;
     public GameObject self;
@@ -19,14 +20,15 @@ public class EnemyController : MonoBehaviour
     private Vector3 follow;
     //private Vector3 aim;
 
-    private float speed = 2.0f;
-    //private float turnSpeed = 20.0f;
+    [Header("Stats")]
+    public float speed = 2.0f;
     public int health = 10;
     public int enemyAttack = 1;
-    private float fireRate = 5.0f;
+    public float fireRate = 5.0f;
     public float fireCooldown = 0.0f;
-    private int points = 10;
+    public int points = 10;
     public bool playerInRange;
+    //Seperate attackRange/followRange vars?
 
     void Start()
     {

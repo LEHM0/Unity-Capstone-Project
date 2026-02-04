@@ -899,10 +899,10 @@ MonoBehaviour:
   pauseMenu: {fileID: 488017724}
   gameOverMenu: {fileID: 1480164019}
   startButton: {fileID: 1601591790}
-  waveSelectButton: {fileID: 0}
-  restartButton: {fileID: 0}
-  exitMenuButton: {fileID: 0}
-  exitGameButton: {fileID: 0}
+  waveSelectButton: {fileID: 1459035967}
+  restartButton: {fileID: 396555148}
+  exitMenuButton: {fileID: 1654626829}
+  exitGameButton: {fileID: 1580552600}
   playerUI: {fileID: 298503345}
   playerHealthUI: {fileID: 1818393823}
   playerAttackUI: {fileID: 4832486}
