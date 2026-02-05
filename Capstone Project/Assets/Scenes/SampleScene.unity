@@ -997,7 +997,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1385532202}
-  m_Father: {fileID: 1113063161}
+  m_Father: {fileID: 1480164020}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1882,7 +1882,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 396555147}
   - {fileID: 1654626828}
   - {fileID: 1840584930}
   m_Father: {fileID: 1297388110}
@@ -2523,6 +2522,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1371594027}
+  - {fileID: 396555147}
   m_Father: {fileID: 1297388110}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -3170,9 +3170,12 @@ MonoBehaviour:
   self: {fileID: 1823854798}
   enemyProjectile: {fileID: 4902192361341159450, guid: 73046cfdaaab0f64eada26971f70dc07, type: 3}
   enemyBSpawn: {fileID: 2111265584}
+  speed: 2
   health: 10
   enemyAttack: 1
+  fireRate: 5
   fireCooldown: 0
+  points: 10
   playerInRange: 0
 --- !u!54 &1823854800
 Rigidbody:

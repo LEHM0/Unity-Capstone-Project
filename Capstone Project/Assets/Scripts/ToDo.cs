@@ -84,7 +84,8 @@ public class ToDo : MonoBehaviour
      * ToDo: Add Pause Menu - DONE
      * ToDo: Add Resume Game button - Working On
      * ToDo: All menus display when called - Working On
-     * ToDo: Add Frame Rate Counter
+     * ToDo: Add Frame Rate counter
+     * ToDo: Add High Score counter
      * Player Controls: ------------
      * Test Player Movement - DONE
      * Test Player Attack Selection - DONE
