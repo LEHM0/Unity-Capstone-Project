@@ -27,7 +27,21 @@ public class FollowPlayer : MonoBehaviour
             rotationY = Input.GetAxis("Mouse Y") * sensitivityY;
             rotationX = Input.GetAxis("Mouse X") * sensitivityX;
 
-            transform.eulerAngles += new Vector3(rotationY, rotationX);
+            rotationX = Mathf.Clamp(rotationX, -89f, 89f);
+
+            //transform.rotation = Quaternion.Euler(rotationX, rotationY, 0f);
+
+            transform.eulerAngles += new Vector3(-rotationY, rotationX);
+
+            //if (transform.rotation.x >= 90f)
+            //{
+            //    transform.rotation.x = 90f;
+            //}
+
+            //if (transform.rotation.x <= -90f)
+            //{
+            //    transform.rotation.x = -90f;
+            //}
         }
         
         if (gameController.isGameActive == false)

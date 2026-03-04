@@ -93,9 +93,9 @@ public class ToDo : MonoBehaviour
      * Test Player Death - DONE
      * ToDo: Make Camera controlled by Player mouse - DONE
      * ToDo: Let Player move left/right - DONE
-     * Fix: Camera is overly sensitive - Working On
-     * Fix: Camera Y value is inverted
-     * Fix: Camera has no restraints, causing it to be stuck upside down
+     * Fix: Camera Y value is inverted - DONE
+     * Fix: Camera is overly sensitive
+     * Fix: Camera has no restraints, causing it to be stuck upside down - Working On
      * Fix: Controls can become inverted
      * Enemies Behavior: ------------
      * Test Enemy Collision - DONE

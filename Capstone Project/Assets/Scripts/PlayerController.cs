@@ -44,8 +44,8 @@ public class PlayerController : MonoBehaviour
         //Movement Physics
         if (gameController.isGameActive == true)
         {
-            transform.Translate(Vector3.forward * Time.deltaTime * speed * verticalInput);
-            transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput);
+            transform.Translate(Vector3.forward * Time.deltaTime * speed * verticalInput);//, Space.Self);
+            transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput);//, Space.Self);
         }
 
         //Jumping Physics
