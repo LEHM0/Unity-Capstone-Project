@@ -33,17 +33,12 @@ public class FollowPlayer : MonoBehaviour
 
             transform.eulerAngles += new Vector3(-rotationY, rotationX);
 
-            //if (transform.rotation.x >= 90f)
-            //{
-            //    transform.rotation.x = 90f;
-            //}
-
-            //if (transform.rotation.x <= -90f)
-            //{
-            //    transform.rotation.x = -90f;
-            //}
+            //rotationX += -Input.GetAxis("Mouse Y") * sensitivityX;
+            //rotationX = Mathf.Clamp(rotationX, -89f, 89f);
+            //playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
+            //transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * sensitivityX, 0);
         }
-        
+
         if (gameController.isGameActive == false)
         {
             Cursor.lockState = CursorLockMode.None;
