@@ -112,7 +112,7 @@ public class ToDo : MonoBehaviour
 
     /* Outline:
      * 1. Finish basic Player abilities - Mostly DONE
-     * 2. Make basic Enemy Class and behavior
+     * 2. Make basic Enemy Class and behavior - Working On
      * 3. Basic Wave functionality + gameplay loop
      * 4. Different Attack + Enemy types
      * 5. Enviroment

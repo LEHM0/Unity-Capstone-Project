@@ -21,8 +21,10 @@ public class EnemyController : MonoBehaviour
     //private Vector3 aim;
 
     [Header("Stats")]
+    public string elementType = "Basic";
     public float speed = 2.0f;
     public int health = 10;
+    public int incomingDmgMult;
     public int enemyAttack = 1;
     public float fireRate = 5.0f;
     public float fireCooldown = 0.0f;
@@ -71,7 +73,7 @@ public class EnemyController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player Projectile"))
         {
-            health -= playerStats.playerAttack;
+            health -= playerStats.playerAttack * incomingDmgMult;
             Destroy(other.gameObject);
             Debug.Log("Enemy Hit");
         }
@@ -108,5 +110,10 @@ public class EnemyController : MonoBehaviour
                 fireCooldown = fireCooldown - fireRate;
             }
         }
+    }
+
+    public virtual void AttackPlayer()
+    {
+        //
     }
 }

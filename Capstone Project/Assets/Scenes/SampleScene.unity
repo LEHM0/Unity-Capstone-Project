@@ -3145,6 +3145,7 @@ GameObject:
   - component: {fileID: 1823854801}
   - component: {fileID: 1823854800}
   - component: {fileID: 1823854799}
+  - component: {fileID: 1823854803}
   - component: {fileID: 1823854802}
   m_Layer: 0
   m_Name: Basic Enemy
@@ -3170,8 +3171,10 @@ MonoBehaviour:
   self: {fileID: 1823854798}
   enemyProjectile: {fileID: 4902192361341159450, guid: 73046cfdaaab0f64eada26971f70dc07, type: 3}
   enemyBSpawn: {fileID: 2111265584}
+  elementType: Basic
   speed: 2
   health: 10
+  incomingDmgMult: 0
   enemyAttack: 1
   fireRate: 5
   fireCooldown: 0
@@ -3244,6 +3247,19 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1823854803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823854798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec92b35340f072746888a425f5d430d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weakness: 
 --- !u!1 &1840584929
 GameObject:
   m_ObjectHideFlags: 0
