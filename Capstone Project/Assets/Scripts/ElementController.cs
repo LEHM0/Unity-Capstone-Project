@@ -7,6 +7,7 @@ public class ElementController : MonoBehaviour
     public string weakness;
 
     private EnemyController enemyController;
+    //private AttachElement AttachElement;
     private PlayerStats playerStats;
 
     void Start()
@@ -58,7 +59,7 @@ public class ElementController : MonoBehaviour
 
     void ApplyWeakness()
     {
-        if (playerStats.attackType == weakness) //Q: Set the element to be attatched to the bullet?
+        if (playerStats.attackType == weakness) //Set to check the bullet's attack type
         {
             enemyController.incomingDmgMult = 2;
         }

@@ -56,40 +56,36 @@ public class PlayerStats : MonoBehaviour
 
     private void PlayerAttackTypes()
     {
-        //selectedAttack = 0 (Basic)
-        if (selectedAttack == 0)
+        switch (selectedAttack)
         {
-            attackType = "Basic";
-        }
-        //selectedAttack = 1 (Fire)
-        if (selectedAttack == 1)
-        {
-            attackType = "Fire";
-        }
-        //selectedAttack = 2 (Ice)
-        if (selectedAttack == 2)
-        {
-            attackType = "Ice";
-        }
-        //selectedAttack = 3 (Earth)
-        if (selectedAttack == 3)
-        {
-            attackType = "Earth";
-        }
-        //selectedAttack = 4 (Wind)
-        if (selectedAttack == 4)
-        {
-            attackType = "Wind";
-        }
-        //selectedAttack = 5 (Light)
-        if (selectedAttack == 5)
-        {
-            attackType = "Light";
-        }
-        //selectedAttack = 6 (Dark)
-        if (selectedAttack == 6)
-        {
-            attackType = "Dark";
+            case 0:
+                attackType = "Basic";
+
+                break;
+            case 1:
+                attackType = "Fire";
+
+                break;
+            case 2:
+                attackType = "Ice";
+
+                break;
+            case 3:
+                attackType = "Earth";
+
+                break;
+            case 4:
+                attackType = "Wind";
+
+                break;
+            case 5:
+                attackType = "Light";
+
+                break;
+            case 6:
+                attackType = "Dark";
+
+                break;
         }
     }
 
