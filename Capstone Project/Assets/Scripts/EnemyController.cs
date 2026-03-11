@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour
     public GameObject enemyProjectile;
     public GameObject enemyBSpawn;
     private Rigidbody enemyRb;
+    private ElementController elementController;
     private PlayerStats playerStats;
     private GameController gameController;
 
@@ -35,6 +36,7 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         enemyRb = GetComponent<Rigidbody>();
+        elementController = GetComponent<ElementController>();
         playerStats = GameObject.Find("Player").GetComponent<PlayerStats>();
         gameController = GameObject.Find("Game Manager").GetComponent<GameController>();
     }
@@ -73,6 +75,12 @@ public class EnemyController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player Projectile"))
         {
+            //Compare the element of the incoming attack to the enemy's weakness
+            AttachElement attachElement = other.gameObject.GetComponent<AttachElement>();
+            string incomingElement = attachElement.attachedElement;
+            elementController.ApplyWeakness(incomingElement);
+
+            //Apply damage value
             health -= playerStats.playerAttack * incomingDmgMult;
             Destroy(other.gameObject);
             Debug.Log("Enemy Hit");

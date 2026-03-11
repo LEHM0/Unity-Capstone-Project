@@ -5,21 +5,19 @@ using UnityEngine;
 public class ElementController : MonoBehaviour
 {
     public string weakness;
-
     private EnemyController enemyController;
-    //private AttachElement AttachElement;
-    private PlayerStats playerStats;
 
     void Start()
     {
-        enemyController = GameObject.Find("Basic Enemy").GetComponent<EnemyController>();
-        playerStats = GameObject.Find("Player").GetComponent<PlayerStats>();
+        enemyController = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyController>();
+        //Fix: Gives all enemies the same weakness, not individial weaknesses
+
+        CheckElement();
     }
 
     void Update()
     {
-        CheckElement();
-        ApplyWeakness();
+        //CheckElement();
     }
 
     void CheckElement()
@@ -57,9 +55,9 @@ public class ElementController : MonoBehaviour
         }
     }
 
-    void ApplyWeakness()
+    public void ApplyWeakness(string checkedElement)
     {
-        if (playerStats.attackType == weakness) //Set to check the bullet's attack type
+        if (checkedElement == weakness)
         {
             enemyController.incomingDmgMult = 2;
         }

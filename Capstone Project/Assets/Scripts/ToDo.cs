@@ -97,11 +97,13 @@ public class ToDo : MonoBehaviour
      * Fix: Camera is overly sensitive
      * Fix: Camera has no restraints, causing it to be stuck upside down - Working On
      * Fix: Controls can become inverted
+     * Fix: Bullet only shoots forward globally, not locally
      * Enemies Behavior: ------------
      * Test Enemy Collision - DONE
      * Test Enemy Death - DONE
      * ToDo: Re-add Player and Enemy Colliders - DONE
      * Test Enemy Attack - DONE
+     * Fix: Enemy weakness does not update correctly - Working On
      */
 
     /* Other Needed Scripts:
@@ -112,7 +114,7 @@ public class ToDo : MonoBehaviour
 
     /* Outline:
      * 1. Finish basic Player abilities - Mostly DONE
-     * 2. Make basic Enemy Class and behavior - ToDo: Set ElementController to check for the bullet's attack type, not the player's
+     * 2. Make basic Enemy Class and behavior - ToDo: Create different enemy types with overridable stats amd attacks
      * 3. Basic Wave functionality + gameplay loop
      * 4. Different Attack + Enemy types
      * 5. Enviroment
