@@ -10,14 +10,11 @@ public class ElementController : MonoBehaviour
     void Start()
     {
         enemyController = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyController>();
-        //Fix: Gives all enemies the same weakness, not individial weaknesses
-
-        CheckElement();
     }
 
     void Update()
     {
-        //CheckElement();
+        //
     }
 
     void CheckElement()
@@ -54,6 +51,11 @@ public class ElementController : MonoBehaviour
                 break;
         }
     }
+
+    void OnSpawn()
+    {
+        CheckElement();
+    } //Redundant?
 
     public void ApplyWeakness(string checkedElement)
     {

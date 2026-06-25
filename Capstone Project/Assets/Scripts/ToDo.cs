@@ -78,13 +78,10 @@ public class ToDo : MonoBehaviour
      * UI: -------------------------
      * Finish Player UI - DONE
      * Redo Main Menu - DONE
-     * ToDo: Add Wave Select Submenu <--- (How many waves?)
-     * Q: Endless Mode?
      * Redo Game Over Menu - DONE
      * ToDo: Add Pause Menu - DONE
      * ToDo: Add Resume Game button - Working On
      * ToDo: All menus display when called - Working On
-     * ToDo: Add Frame Rate counter
      * ToDo: Add High Score counter
      * Player Controls: ------------
      * Test Player Movement - DONE
@@ -104,11 +101,12 @@ public class ToDo : MonoBehaviour
      * ToDo: Re-add Player and Enemy Colliders - DONE
      * Test Enemy Attack - DONE
      * Fix: Enemy weakness does not update correctly - Working On
+     * >Set enemy weakness on spawn
      */
 
     /* Other Needed Scripts:
      * UIController
-     * EnemySpawnController
+     * EnemySpawnController - Working On
      * WaveController
      */
 
