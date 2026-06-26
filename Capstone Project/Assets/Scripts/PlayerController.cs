@@ -141,7 +141,7 @@ public class PlayerController : MonoBehaviour
 
     private void FireProjectile()
     {
-        //Spawn projectile in front of where the player is facing
+        //Fix: Spawn projectile in front of where the player is facing
         currentPlayerPos = playerBSpawn.transform.position;
 
         Instantiate(playerProjectile, currentPlayerPos, player.transform.rotation);

@@ -23,6 +23,7 @@ public class EnemyController : MonoBehaviour
 
     [Header("Stats")]
     public string elementType = "Basic";
+    //public string weakness = "Null"
     public float speed = 2.0f;
     public int health = 10;
     public int incomingDmgMult;

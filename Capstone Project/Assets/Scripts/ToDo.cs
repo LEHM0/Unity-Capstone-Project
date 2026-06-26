@@ -100,14 +100,14 @@ public class ToDo : MonoBehaviour
      * Test Enemy Death - DONE
      * ToDo: Re-add Player and Enemy Colliders - DONE
      * Test Enemy Attack - DONE
-     * Fix: Enemy weakness does not update correctly - Working On
-     * >Set enemy weakness on spawn
+     * Fix: Set enemy weakness in prefabs, not automatically - Working On
      */
 
     /* Other Needed Scripts:
      * UIController
      * EnemySpawnController - Working On
-     * WaveController
+     * WaveController - Working On
+     * ToDo: Refactor scripts
      */
 
     /* Outline:

@@ -17,47 +17,42 @@ public class ElementController : MonoBehaviour
         //
     }
 
-    void CheckElement()
-    {
-        switch (enemyController.elementType)
-        {
-            case "Basic":
-                weakness = "Null";
+    //void CheckElement()
+    //{
+    //    switch (enemyController.elementType)
+    //    {
+    //        case "Basic":
+    //            weakness = "Null";
 
-                break;
-            case "Fire":
-                weakness = "Ice";
+    //            break;
+    //        case "Fire":
+    //            weakness = "Ice";
 
-                break;
-            case "Ice":
-                weakness = "Fire";
+    //            break;
+    //        case "Ice":
+    //            weakness = "Fire";
 
-                break;
-            case "Earth":
-                weakness = "Wind";
+    //            break;
+    //        case "Earth":
+    //            weakness = "Wind";
 
-                break;
-            case "Wind":
-                weakness = "Earth";
+    //            break;
+    //        case "Wind":
+    //            weakness = "Earth";
 
-                break;
-            case "Light":
-                weakness = "Dark";
+    //            break;
+    //        case "Light":
+    //            weakness = "Dark";
 
-                break;
-            case "Dark":
-                weakness = "Light";
+    //            break;
+    //        case "Dark":
+    //            weakness = "Light";
 
-                break;
-        }
-    }
+    //            break;
+    //    }
+    //}
 
-    void OnSpawn()
-    {
-        CheckElement();
-    } //Redundant?
-
-    public void ApplyWeakness(string checkedElement)
+    public void ApplyWeakness(string checkedElement) //Move to EnemyController
     {
         if (checkedElement == weakness)
         {
