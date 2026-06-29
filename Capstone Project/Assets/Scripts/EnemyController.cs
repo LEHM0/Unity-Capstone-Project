@@ -11,7 +11,7 @@ public class EnemyController : MonoBehaviour
     public GameObject enemyProjectile;
     public GameObject enemyBSpawn;
     private Rigidbody enemyRb;
-    private ElementController elementController;
+    //private ElementController elementController;
     private PlayerStats playerStats;
     private GameController gameController;
 
@@ -22,8 +22,8 @@ public class EnemyController : MonoBehaviour
     //private Vector3 aim;
 
     [Header("Stats")]
-    public string elementType = "Basic";
-    //public string weakness = "Null"
+    public string elementType = "Basic"; //Factor into attack dmg calc
+    public string weakness = "Null";
     public float speed = 2.0f;
     public int health = 10;
     public int incomingDmgMult;
@@ -37,7 +37,7 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         enemyRb = GetComponent<Rigidbody>();
-        elementController = GetComponent<ElementController>();
+        //elementController = GetComponent<ElementController>();
         playerStats = GameObject.Find("Player").GetComponent<PlayerStats>();
         gameController = GameObject.Find("Game Manager").GetComponent<GameController>();
     }
@@ -72,6 +72,18 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    public void ApplyWeakness(string checkedElement)
+    {
+        if (checkedElement == weakness)
+        {
+            incomingDmgMult = 2;
+        }
+        else
+        {
+            incomingDmgMult = 1;
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player Projectile"))
@@ -79,7 +91,7 @@ public class EnemyController : MonoBehaviour
             //Compare the element of the incoming attack to the enemy's weakness
             AttachElement attachElement = other.gameObject.GetComponent<AttachElement>();
             string incomingElement = attachElement.attachedElement;
-            elementController.ApplyWeakness(incomingElement);
+            ApplyWeakness(incomingElement);
 
             //Apply damage value
             health -= playerStats.playerAttack * incomingDmgMult;
