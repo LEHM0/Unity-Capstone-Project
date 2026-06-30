@@ -5,25 +5,36 @@ using UnityEngine;
 
 public class EnemySpawnController : MonoBehaviour
 {
-    //array spawnPoints = []
-    //Vector3 spawnPos
+    private WaveController waveController;
 
-    void Start()
+    public Transform[] spawnPoints;
+    private float spawnCooldown = 1.5f;
+    private float spawnTimer = 0f;
+
+    private void Start()
     {
-        //Choose random spawn point (set empty GO's around map)
-        //Choose enemy type based on wave count (iterate through an array for each wave)
-        //Instantiate correct enemy prefab
-        SpawnEnemy();
+        waveController = GameObject.Find("Enemy Spawn Manager").GetComponent<WaveController>();
     }
 
     void Update()
     {
-        //
+        waveController.NextEnemy();
+        SpawnEnemies();
     }
 
-    void SpawnEnemy() //IEnumerator/Coroutine?
+    void SpawnEnemies()
     {
-        //spawnPos = UnityEngine.Random.Range(1, 2);
-        //Select randomly from array of spawn points
+        if (waveController.upcomingEnemies.Count == 0) return;
+
+        spawnTimer += Time.deltaTime;
+        if (spawnTimer < spawnCooldown) return;
+
+        spawnTimer = 0f;
+
+        GameObject enemyToSpawn = waveController.upcomingEnemies[0];
+        waveController.upcomingEnemies.RemoveAt(0);
+
+        Transform spawnPoint = spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Length)];
+        Instantiate(enemyToSpawn, spawnPoint.position, spawnPoint.rotation);
     }
 }

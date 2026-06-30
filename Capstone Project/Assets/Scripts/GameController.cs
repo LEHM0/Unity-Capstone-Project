@@ -8,12 +8,9 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     public bool isGameActive = false;
-    private int waveNum = 0; //Move these to WaveController, or move WaveController to here?
-    private float waveDownTime;
-    private int maxEnemies;
-    private int currentEnemies = 0;
 
     private PlayerStats playerStats;
+    private WaveController waveController;
 
     [Header("Menu UI")]
     public GameObject mainMenu;
@@ -42,14 +39,12 @@ public class GameController : MonoBehaviour
         TitleScreen();
 
         playerStats = GameObject.Find("Player").GetComponent<PlayerStats>();
+        waveController = GameObject.Find("Enemy Spawn Manager").GetComponent<WaveController>();
 
         //Button Listeners
         startButton.onClick.AddListener(StartGame);
-        //waveSelectButton.onClick.AddListener();
-        //restartButton.onClick.AddListener(RestartGame);
         exitMenuButton.onClick.AddListener(TitleScreen);
         exitGameButton.onClick.AddListener(ExitGame);
-        //Need resumeGame button for pauseMenu <---
     }
 
     void Update()
@@ -69,8 +64,8 @@ public class GameController : MonoBehaviour
             rightGunAmmoUI.SetText("Reloading");
         }
 
-        waveNumUI.SetText(waveNum.ToString());
-        enemiesLeftUI.SetText(currentEnemies.ToString());
+        waveNumUI.SetText(waveController.waveNum.ToString());
+        enemiesLeftUI.SetText(waveController.currentEnemies.ToString());
 
         if (Input.GetKey(KeyCode.Escape) && isGameActive)
         {

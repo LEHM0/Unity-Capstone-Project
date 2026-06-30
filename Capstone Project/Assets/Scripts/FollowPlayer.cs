@@ -9,8 +9,9 @@ public class FollowPlayer : MonoBehaviour
 
     public float sensitivityY = 1f;
     public float sensitivityX = 1f;
-    float rotationY = 1f;
-    float rotationX = 1f;
+
+    private float pitch = 0f;
+    private float yaw = 0f;
 
     void Start()
     {
@@ -19,27 +20,18 @@ public class FollowPlayer : MonoBehaviour
 
     void Update()
     {
-        if (gameController.isGameActive == true)
+        if (gameController.isGameActive)
         {
-            //Move the camera in front of where the player moves and wants to face
             Cursor.lockState = CursorLockMode.Locked;
             transform.position = player.transform.position;
-            rotationY = Input.GetAxis("Mouse Y") * sensitivityY;
-            rotationX = Input.GetAxis("Mouse X") * sensitivityX;
 
-            rotationX = Mathf.Clamp(rotationX, -89f, 89f);
+            yaw += Input.GetAxis("Mouse X") * sensitivityX;
+            pitch -= Input.GetAxis("Mouse Y") * sensitivityY;
+            pitch = Mathf.Clamp(pitch, -89f, 89f);
 
-            //transform.rotation = Quaternion.Euler(rotationX, rotationY, 0f);
-
-            transform.eulerAngles += new Vector3(-rotationY, rotationX);
-
-            //rotationX += -Input.GetAxis("Mouse Y") * sensitivityX;
-            //rotationX = Mathf.Clamp(rotationX, -89f, 89f);
-            //playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
-            //transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * sensitivityX, 0);
+            transform.eulerAngles = new Vector3(pitch, yaw, 0f);
         }
-
-        if (gameController.isGameActive == false)
+        else
         {
             Cursor.lockState = CursorLockMode.None;
         }

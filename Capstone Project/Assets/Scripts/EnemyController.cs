@@ -11,18 +11,16 @@ public class EnemyController : MonoBehaviour
     public GameObject enemyProjectile;
     public GameObject enemyBSpawn;
     private Rigidbody enemyRb;
-    //private ElementController elementController;
     private PlayerStats playerStats;
     private GameController gameController;
 
     private Vector3 playerPos;
     private Vector3 currentPos;
-    //private Vector3 offset = new Vector3(0, 0, 1);
     private Vector3 follow;
     //private Vector3 aim;
 
     [Header("Stats")]
-    public string elementType = "Basic"; //Factor into attack dmg calc
+    public string elementType = "Basic";
     public string weakness = "Null";
     public float speed = 2.0f;
     public int health = 10;
@@ -32,14 +30,14 @@ public class EnemyController : MonoBehaviour
     public float fireCooldown = 0.0f;
     public int points = 10;
     public bool playerInRange;
-    //Seperate attackRange/followRange vars?
 
     void Start()
     {
         enemyRb = GetComponent<Rigidbody>();
-        //elementController = GetComponent<ElementController>();
         playerStats = GameObject.Find("Player").GetComponent<PlayerStats>();
         gameController = GameObject.Find("Game Manager").GetComponent<GameController>();
+
+        StartCoroutine(FireAtPlayer());
     }
 
     void Update()
@@ -48,12 +46,9 @@ public class EnemyController : MonoBehaviour
 
         if (gameController.isGameActive == true)
         {
-            //
             transform.LookAt(playerTransform);
 
-            //FollowPlayer();
-
-            StartCoroutine(FireAtPlayer());
+            FollowPlayer();
         }
 
         if (Vector3.Distance(playerPos, transform.position) <= 5)
@@ -111,30 +106,27 @@ public class EnemyController : MonoBehaviour
 
     private void FollowPlayer()
     {
-        //
+        if (playerInRange) return;
         follow = (playerPos - transform.position).normalized;
         transform.Translate(follow * speed * Time.deltaTime);
     }
 
     IEnumerator FireAtPlayer()
     {
-        yield return new WaitForSeconds(1);
-        if (playerInRange == true)
+        while (true)
         {
-            fireCooldown += Time.deltaTime;
-            if (fireCooldown > fireRate)
+            yield return new WaitForSeconds(0.1f);
+
+            if (gameController.isGameActive && playerInRange)
             {
-                currentPos = enemyBSpawn.transform.position;
-
-                Instantiate(enemyProjectile, currentPos, self.transform.rotation);
-
-                fireCooldown = fireCooldown - fireRate;
+                fireCooldown += 0.1f;
+                if (fireCooldown >= fireRate)
+                {
+                    currentPos = enemyBSpawn.transform.position;
+                    Instantiate(enemyProjectile, currentPos, self.transform.rotation);
+                    fireCooldown = 0f;
+                }
             }
         }
-    }
-
-    public virtual void AttackPlayer()
-    {
-        //
     }
 }

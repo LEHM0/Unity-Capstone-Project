@@ -14,7 +14,6 @@ public class PlayerStats : MonoBehaviour
 
     //Gun + Ammo Stats
     public int playerAttack = 1;
-    public int unlockedAttacks; // Controls what attacks the player can use; 0 = Basic, 6 = All Attacks Available
     public int selectedAttack;
     public string attackType;
     public int leftGunMaxAmmo = 6;

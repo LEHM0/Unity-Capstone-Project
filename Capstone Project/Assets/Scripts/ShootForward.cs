@@ -8,13 +8,12 @@ public class ShootForward : MonoBehaviour
 
     void Start()
     {
-        //
+        StartCoroutine(Lifespan());
     }
 
     void Update()
     {
         transform.Translate(Vector3.forward * Time.deltaTime * attackSpeed);
-        StartCoroutine(Lifespan());
     }
 
     IEnumerator Lifespan()

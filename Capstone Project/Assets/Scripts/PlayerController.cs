@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public GameObject player;
     public GameObject playerProjectile;
     public GameObject playerBSpawn;
+    public GameObject playerCamera;
     private Rigidbody playerRb;
     private PlayerStats playerStats;
     private EnemyController enemyController;
@@ -15,14 +16,11 @@ public class PlayerController : MonoBehaviour
 
     //Vector3's for determining bullet position
     private Vector3 currentPlayerPos;
-    //private Vector3 bulletSpawnPos;
-    //private Vector3 bulletOffSet = new Vector3(0, 0, 1);
 
     //Movement variables
     private float verticalInput;
     private float horizontalInput;
     private float speed = 10;
-    //private float turnSpeed = 20;
     private float jump = 10;
     private bool grounded = true;
 
@@ -44,8 +42,8 @@ public class PlayerController : MonoBehaviour
         //Movement Physics
         if (gameController.isGameActive == true)
         {
-            transform.Translate(Vector3.forward * Time.deltaTime * speed * verticalInput);//, Space.Self);
-            transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput);//, Space.Self);
+            transform.Translate(Vector3.forward * Time.deltaTime * speed * verticalInput);
+            transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput);
         }
 
         //Jumping Physics
@@ -141,10 +139,8 @@ public class PlayerController : MonoBehaviour
 
     private void FireProjectile()
     {
-        //Fix: Spawn projectile in front of where the player is facing
         currentPlayerPos = playerBSpawn.transform.position;
-
-        Instantiate(playerProjectile, currentPlayerPos, player.transform.rotation);
+        Instantiate(playerProjectile, currentPlayerPos, playerCamera.transform.rotation);
     }
 
     private void CheckReload()
