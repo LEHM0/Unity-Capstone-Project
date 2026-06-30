@@ -31,8 +31,8 @@ public class EnemySpawnController : MonoBehaviour
 
         spawnTimer = 0f;
 
-        GameObject enemyToSpawn = waveController.upcomingEnemies[0];
-        waveController.upcomingEnemies.RemoveAt(0);
+        GameObject enemyToSpawn = waveController.upcomingEnemies.Dequeue();
+        //waveController.upcomingEnemies.RemoveAt(0);
 
         Transform spawnPoint = spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Length)];
         Instantiate(enemyToSpawn, spawnPoint.position, spawnPoint.rotation);

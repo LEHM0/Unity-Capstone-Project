@@ -5,8 +5,6 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     [Header("GameObjects")]
-    public GameObject player;
-    public Transform playerTransform;
     public GameObject self;
     public GameObject enemyProjectile;
     public GameObject enemyBSpawn;
@@ -17,7 +15,6 @@ public class EnemyController : MonoBehaviour
     private Vector3 playerPos;
     private Vector3 currentPos;
     private Vector3 follow;
-    //private Vector3 aim;
 
     [Header("Stats")]
     public string elementType = "Basic";
@@ -42,12 +39,10 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        playerPos = player.transform.position;
+        playerPos = GameObject.Find("Player").transform.position;
 
         if (gameController.isGameActive == true)
         {
-            transform.LookAt(playerTransform);
-
             FollowPlayer();
         }
 

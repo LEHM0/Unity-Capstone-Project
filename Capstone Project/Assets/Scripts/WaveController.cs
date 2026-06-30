@@ -35,7 +35,7 @@ public class WaveController : MonoBehaviour //Future: Merge w/ EnemySpawnControl
         { 2, 3, 4, 2, 3, 4, 5, 4, 3, 2 }, 
         { 2, 3, 4, 5, 6 ,7, 5, 6, 7, 6 } }; //0-9
 
-    public List<GameObject> upcomingEnemies = new List<GameObject>();
+    public Queue<GameObject> upcomingEnemies = new Queue<GameObject>();
 
     void Start()
     {
@@ -89,7 +89,7 @@ public class WaveController : MonoBehaviour //Future: Merge w/ EnemySpawnControl
             GameObject prefab = GetEnemyPrefab(enemyId);
 
             if (prefab != null)
-                upcomingEnemies.Add(prefab);
+                upcomingEnemies.Enqueue(prefab);
 
             enemyIndex++;
         }

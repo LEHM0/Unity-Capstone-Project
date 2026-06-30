@@ -40,7 +40,7 @@ public class ToDo : MonoBehaviour
      * 2) Add enemy movement and attack logic - DONE
      * 3) Adjust player and camera movement - DONE
      * 3.1) Fix player aiming - DONE
-     * 4) Fix Spawning issues - Working On <-------------------------------------------------------------
+     * 4) Fix Spawning issues - DONE
      * 5) Finish UI + logic - Bench
      */
 
