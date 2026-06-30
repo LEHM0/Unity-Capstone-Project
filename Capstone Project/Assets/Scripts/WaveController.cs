@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaveController : MonoBehaviour
+public class WaveController : MonoBehaviour //Future: Merge w/ EnemySpawnController?
 {
     public GameObject basicE; //0
     public GameObject fireE;  //1

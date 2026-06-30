@@ -7,8 +7,8 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    public bool isGameActive = false; //Move these to WaveController, or move WaveController to here?
-    private int waveNum = 0;
+    public bool isGameActive = false;
+    private int waveNum = 0; //Move these to WaveController, or move WaveController to here?
     private float waveDownTime;
     private int maxEnemies;
     private int currentEnemies = 0;

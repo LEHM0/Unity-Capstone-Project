@@ -13,7 +13,6 @@ public class EnemySpawnController : MonoBehaviour
         //Choose random spawn point (set empty GO's around map)
         //Choose enemy type based on wave count (iterate through an array for each wave)
         //Instantiate correct enemy prefab
-        //elementController.CheckElement() (ToDo: Set the weakness in the prefabs instead of automatically)
         SpawnEnemy();
     }
 
